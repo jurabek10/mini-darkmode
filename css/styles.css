@@ -1,9 +1,28 @@
-/* GLOBAL STYLES */
+/* CUSTOM-PROP */
+:root {
+    --brand-color: #ffa7c4;
+    --outline-color: var(--brand-color);
+    --text-color: #222;
+    --bg-color: #fff;
+    --font-family-text: "Arial", sans-serif;
+    --font-family-heading: "Palatino", serif;
+}
 
+.dark-mode {
+    --text-color: #fff;
+    --bg-color: #222;
+}
+
+
+/* GLOBAL STYLES */
 html {
     height: 100%;
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+*:focus {
+    outline: 2px dashed var(--brand-color);
 }
 
 *,
@@ -21,8 +40,10 @@ body {
     font-size: 16px;
     line-height: 1.5;
     font-family: "Arial", sans-serif;
-    background-color: #fff;
-    color: #222;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease
+        color 0.3s ease;
 }
 
 img {
@@ -30,11 +51,15 @@ img {
     height: auto;
 }
 
+a {
+    color: var(--brand-color);
+}
+
 /* CONTAINER */
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 700px;
     padding-left: 50px;
     padding-right: 50px;
     margin-right: auto;
@@ -45,4 +70,68 @@ img {
 
 main {
     flex-grow: 1;
+    margin-bottom: 56px;
+}
+
+/* SITE-HEADER */
+.site-header {
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.site-header-logo {
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.site-header-light {
+    margin-right: 10px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.author-img {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    margin-right: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info {
+    flex-grow: 1;
+}
+
+
+/* ARTICLES */
+.articles {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.articles-item:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.articles-title {
+    margin: 0;
+}
+
+.articles-link {
+    text-decoration: none;
+}
+
+.articles-text {
+    margin: 0;
 }
